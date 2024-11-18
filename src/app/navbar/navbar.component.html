@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <span>Edit Documents</span>
+    <mat-form-field >
+
+        <mat-label>Documents</mat-label>
+        <mat-select [(ngModel)]="selectedDocument" (selectionChange)="openDoc()" >
+            
+            @for(document of (documentsList$ | async); track document) {
+                <mat-option [value]="document.filename">{{document.filename}}
+                </mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button (click)="onDelete()" [disabled]="!selectedDocument">
+        <mat-icon>delete</mat-icon>
+        Delete Document
+    </button>
+    
+        <button mat-raised-button (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+            Add Document
+        </button>
+        <button mat-raised-button (click)="save()">
+            <mat-icon>save</mat-icon>
+            Save Document
+        </button>
+
+    
+    
+</mat-toolbar>

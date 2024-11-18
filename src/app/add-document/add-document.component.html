@@ -1,0 +1,14 @@
+<div>
+    <form [formGroup]="addDocument">
+        <h2>Add Document</h2>
+        <mat-form-field>
+            <mat-label>
+                filename
+            </mat-label>
+            <input matInput placeholder="Enter file name" formControlName="filename">
+        </mat-form-field>
+        <button mat-raised-button (click)="addDoc()">
+            Submit
+        </button>
+    </form>
+</div>
